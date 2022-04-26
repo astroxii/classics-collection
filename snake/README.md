@@ -1,3 +1,3 @@
-# The classic Snake game
+# Snake
 
-Become an apple-eater snake and grow as much as you can in this 2D old cellphone game!
+The classic old cellphone game where you become a apple-eater snake and grow up every time you catch one fruit.

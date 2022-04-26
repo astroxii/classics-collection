@@ -1,3 +1,12 @@
+/**
+ * Browser version of TicTacToe game.
+ * 
+ * astroxii @ 2022
+ * 
+ * Have fun!
+ * 
+ */
+
 (function(){reset();})();
 
 var Timer = null;
