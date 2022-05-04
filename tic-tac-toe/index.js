@@ -82,7 +82,7 @@ function timer()
     }, 1000);
 }
 
-// Stop the actual timer.
+// Stop the current timer.
 function stopTimer()
 {
     window.clearInterval(Timer);
