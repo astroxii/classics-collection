@@ -7,8 +7,11 @@
  * 
  */
 
+// A reset on every reload.
 (function(){reset();})();
 
+// This starts the game, triggered by clicking the green button!
+// Generates the game data at initial states and saves to sessionStorage.
 function start(btn)
 {
     if(sessionStorage.getItem("Running") === "false")
@@ -25,6 +28,7 @@ function start(btn)
     }
 }
 
+// This recursive loop function calls all game procedure by a delay of 100ms.
 function run()
 {
     setTimeout(() =>
@@ -45,6 +49,7 @@ function run()
     }, 100);
 }
 
+// This function draws the game to the screen.
 function draw()
 {
     const fieldSize = 60;
@@ -72,6 +77,9 @@ function draw()
     positions[apple.coords[0]][apple.coords[1]]?.classList?.add("apple");
 }
 
+// The snake moves are made by this.
+// Every block of the snake's body follows the next one depending on it's relative position
+// at the game's matrix. Then the check for collision occurs.
 function move()
 {
     const snake = JSON.parse(sessionStorage.getItem("Snake"));
@@ -218,6 +226,7 @@ function move()
     }
 }
 
+// The collision checking. Classic snake logic applied to it: don't hit walls neither your body or you lose.
 function check(snake)
 {
     const head = snake.body[snake.body.length-1];
@@ -241,6 +250,8 @@ function check(snake)
     }
 }
 
+// Eating grows the snake, and generate a new apple if it happens.
+// The new tail is generated at a safe position depending on old tail's relative position.
 function eat()
 {
     const snake = JSON.parse(sessionStorage.getItem("Snake"));
@@ -278,6 +289,7 @@ function eat()
     }
 }
 
+// New apples are generated.
 function placeApple()
 {
     const apple = JSON.parse(sessionStorage.getItem("Apple"));
@@ -293,6 +305,7 @@ function placeApple()
     }
 }
 
+// :(
 function endgame()
 {
     sessionStorage.setItem("Running", "false");
@@ -304,6 +317,7 @@ function endgame()
     document.getElementById("gameover").style.display = "initial";
 }
 
+// Resets everything!
 function reset()
 {
     sessionStorage.setItem("Running", "false");
@@ -313,6 +327,7 @@ function reset()
     document.getElementById("gameover").style.display = "none";
 }
 
+// You can play with both UP, DOWN, LEFT, RIGHT or WASD.
 window.addEventListener("keydown", function(e)
 {
     if(JSON.parse(this.sessionStorage.getItem("Running")))

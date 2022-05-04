@@ -1,3 +1,10 @@
+/**
+ * Really simple way to translate low amount of data staticly.
+ * 
+ * astroxii @ 2022
+ * 
+ */
+
 const dictionary = 
 {
     "en":

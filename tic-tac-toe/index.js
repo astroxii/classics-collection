@@ -7,10 +7,15 @@
  * 
  */
 
+// A reset on every reload.
 (function(){reset();})();
 
+// This is to ensure the game won't generate a thousand timers and make it impossible
+// to control them.
 var Timer = null;
 
+// This starts the game, triggered by clicking the green button!
+// Generates the game data at initial states and saves to sessionStorage.
 function start(btn)
 {   
     if(sessionStorage.getItem("Playing") !== "true")
@@ -50,6 +55,7 @@ function start(btn)
     }
 }
 
+// This recursive loop limits the play time of each player to 10 seconds.
 function timer()
 {
     sessionStorage.setItem("Timer", "10");
@@ -76,11 +82,13 @@ function timer()
     }, 1000);
 }
 
+// Stop the actual timer.
 function stopTimer()
 {
     window.clearInterval(Timer);
 }
 
+// Triggered when pieces are chosen, this sets the piece's value.
 function play(e)
 {
     if(sessionStorage.getItem("Playing") === "true")
@@ -103,6 +111,7 @@ function play(e)
     }
 }
 
+// Checks for win or tie.
 function check()
 {
     const pieces = document.querySelectorAll(".piece");
@@ -164,6 +173,7 @@ function check()
     return false;
 }
 
+// :(
 function endgame(winpos)
 {
     stopTimer();
@@ -186,6 +196,7 @@ function endgame(winpos)
     document.getElementById("timer").innerText = "---";
 }
 
+// Ensure each piece is chosen once.
 function togglePieces(enabled)
 {
     const pieces = document.querySelectorAll(".piece");
@@ -200,6 +211,7 @@ function togglePieces(enabled)
     }
 }
 
+// Resets everything!
 function reset()
 {
     const pieces = document.querySelectorAll(".piece");
@@ -224,6 +236,7 @@ function reset()
     }
 }
 
+// You can also use 1 - 9 buttons to choose a piece.
 window.addEventListener("keydown", function (e)
 {
     const ks = [1, 2, 3, 4, 5, 6, 7, 8, 9];
