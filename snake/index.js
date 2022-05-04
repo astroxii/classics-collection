@@ -226,7 +226,7 @@ function move()
     }
 }
 
-// The collision checking. Classic snake logic applied to it: don't hit walls neither your body or you lose.
+// The collision checking. Classic snake logic applied to it: don't hit walls nor your body or you lose.
 function check(snake)
 {
     const head = snake.body[snake.body.length-1];
