@@ -265,7 +265,8 @@ function eat()
         sessionStorage.setItem("Apple", JSON.stringify(apple));
 
         let x, y;
-
+        
+        // What in the world is this... Fix...
         if(tail[0] > head[0])
         {
             y = tail[0];
@@ -282,6 +283,7 @@ function eat()
         {
             x = tail[1];
         }
+        // *************************************
 
         snake.body.unshift([y, x]);
         sessionStorage.setItem("Snake", JSON.stringify(snake));
