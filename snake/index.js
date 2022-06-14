@@ -266,24 +266,8 @@ function eat()
 
         let x, y;
         
-        // What in the world is this... Fix...
-        if(tail[0] > head[0])
-        {
-            y = tail[0];
-        }
-        else
-        {
-            y = tail[0];
-        }
-        if(tail[1] > head[1])
-        {
-            x = tail[1];
-        }
-        else
-        {
-            x = tail[1];
-        }
-        // *************************************
+        y = tail[0];
+        x = tail[1];
 
         snake.body.unshift([y, x]);
         sessionStorage.setItem("Snake", JSON.stringify(snake));
